@@ -40,3 +40,60 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
         });
     });
 });
+
+let nodes = [];
+
+function setup() {
+    let canvas = createCanvas(windowWidth, windowHeight);
+    canvas.parent('node-network');
+    frameRate(30);
+    for (let i = 0; i < 50; i++) {
+        nodes.push(new Node(random(width), random(height)));
+    }
+}
+
+function draw() {
+    clear();
+    nodes.forEach(node => {
+        node.update();
+        node.display();
+    });
+    for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+            let d = dist(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
+            if (d < 100) {
+                stroke(255, 150);
+                line(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
+            }
+        }
+    }
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
+
+class Node {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = random(5, 15);
+        this.angle = random(TWO_PI);
+    }
+
+    update() {
+        this.angle += 0.05;
+        this.size = 10 + sin(this.angle) * 5;
+        let d = dist(mouseX, mouseY, this.x, this.y);
+        if (d < 100) {
+            this.x += random(-1, 1);
+            this.y += random(-1, 1);
+        }
+    }
+
+    display() {
+        noStroke();
+        fill(255);
+        ellipse(this.x, this.y, this.size);
+    }
+}
