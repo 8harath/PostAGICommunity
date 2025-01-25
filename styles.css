@@ -53,3 +53,43 @@ nav ul li a {
         padding: 20px 10px;
     }
 }
+
+/* Hover effects for buttons and thread cards */
+.hero button:hover {
+    background-color: #008F7A;
+}
+
+.thread-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the thread cards */
+.thread-card {
+    background-color: #1A1A1A;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.thread-card h3 {
+    margin: 0 0 10px 0;
+}
+
+.thread-card p {
+    margin: 0 0 10px 0;
+}
+
+.thread-card button {
+    background-color: #00C9A7;
+    color: #0A0A0A;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.thread-card button:hover {
+    background-color: #008F7A;
+}
