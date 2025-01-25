@@ -31,13 +31,23 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
+    vertical-align: top;
 }
 
 nav ul li a {
     color: var(--primary-color);
     text-decoration: none;
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+nav ul li p {
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+    margin: 0;
 }
 
 .hero {
