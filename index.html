@@ -33,7 +33,11 @@
     </section>
     <section class="forum-preview">
         <h2 style="letter-spacing: 0.05em; font-size: 2rem;">Latest Discussions</h2>
-        <div id="threads"></div>
+        <select id="sort-threads">
+            <option value="replies">Sort by Replies</option>
+            <option value="tags">Sort by Tags</option>
+        </select>
+        <div class="thread-grid" id="threads"></div>
     </section>
     <script src="script.js"></script>
     <script>
