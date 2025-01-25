@@ -160,3 +160,27 @@ nav ul li a {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* Styles for the thread-grid class */
+.thread-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Styles for the select element */
+select#sort-threads {
+    background-color: #1A1A1A;
+    color: #E0E0E0;
+    border: 1px solid #00C9A7;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+select#sort-threads:hover {
+    border-color: #008F7A;
+}
