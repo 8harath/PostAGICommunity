@@ -162,3 +162,18 @@ nav ul li a {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
+
+/* Styles for the pause/play toggle button */
+#pause-play-toggle {
+    background-color: var(--primary-color);
+    color: var(--background-color-dark);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#pause-play-toggle:hover {
+    background-color: var(--hover-color);
+}

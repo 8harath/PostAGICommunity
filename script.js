@@ -42,6 +42,8 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
 });
 
 let nodes = [];
+let binaryStreams = [];
+let isPaused = false;
 
 function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
@@ -50,10 +52,18 @@ function setup() {
     for (let i = 0; i < 50; i++) {
         nodes.push(new Node(random(width), random(height)));
     }
+    for (let i = 0; i < 10; i++) {
+        binaryStreams.push(new BinaryStream(random(width), random(height)));
+    }
 }
 
 function draw() {
+    if (isPaused) return;
     clear();
+    binaryStreams.forEach(stream => {
+        stream.update();
+        stream.display();
+    });
     nodes.forEach(node => {
         node.update();
         node.display();
@@ -62,7 +72,8 @@ function draw() {
         for (let j = i + 1; j < nodes.length; j++) {
             let d = dist(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
             if (d < 100) {
-                stroke(255, 150);
+                stroke(212, 175, 55, 76); // Stellar Gold at 30% opacity
+                strokeWeight(2 + sin(frameCount * 0.05) * 1.5); // Throbbing effect
                 line(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
             }
         }
@@ -86,17 +97,56 @@ class Node {
         this.size = 10 + sin(this.angle) * 5;
         let d = dist(mouseX, mouseY, this.x, this.y);
         if (d < 100) {
-            this.x += random(-1, 1);
-            this.y += random(-1, 1);
+            let force = createVector(this.x - mouseX, this.y - mouseY);
+            force.setMag(2);
+            this.x += force.x;
+            this.y += force.y;
         }
     }
 
     display() {
         noStroke();
-        fill(255);
+        fill(0, 201, 167, 200); // Bioluminescent Teal with soft glow effect
         ellipse(this.x, this.y, this.size);
     }
 }
+
+class BinaryStream {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.stream = this.generateStream();
+    }
+
+    generateStream() {
+        let stream = '';
+        for (let i = 0; i < 20; i++) {
+            stream += random() > 0.5 ? '1' : '0';
+        }
+        return stream;
+    }
+
+    update() {
+        this.y += 1;
+        if (this.y > height) {
+            this.y = 0;
+            this.stream = this.generateStream();
+        }
+    }
+
+    display() {
+        fill(255, 50);
+        textSize(12);
+        text(this.stream, this.x, this.y);
+    }
+}
+
+// Pause/Play Toggle
+const pausePlayToggle = document.getElementById('pause-play-toggle');
+pausePlayToggle.addEventListener('click', () => {
+    isPaused = !isPaused;
+    pausePlayToggle.textContent = isPaused ? 'Play Animation' : 'Pause Animation';
+});
 
 // Dark/Light Mode Toggle
 const themeToggle = document.getElementById('theme-toggle');
