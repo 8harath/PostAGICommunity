@@ -10,12 +10,21 @@
 </head>
 <body>
     <nav>
+        <span class="hamburger-menu">☰</span>
         <ul>
             <li><a href="#" id="home-link">Home</a></li>
             <li><a href="#" id="forum-link">Forum</a></li>
             <li><a href="#" id="library-link">Library</a></li>
             <li><a href="#" id="events-link">Events</a></li>
         </ul>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#" id="home-link">Home</a></li>
+                <li><a href="#" id="forum-link">Forum</a></li>
+                <li><a href="#" id="library-link">Library</a></li>
+                <li><a href="#" id="events-link">Events</a></li>
+            </ul>
+        </div>
     </nav>
     <section class="hero">
         <h1 style="letter-spacing: 0.05em; font-size: 3rem;">Welcome to the Post-AGI Community</h1>
@@ -27,5 +36,10 @@
         <div id="threads"></div>
     </section>
     <script src="script.js"></script>
+    <script>
+        document.querySelector('.hamburger-menu').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('visible');
+        });
+    </script>
 </body>
 </html>

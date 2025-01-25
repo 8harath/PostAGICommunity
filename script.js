@@ -40,3 +40,7 @@ document.querySelectorAll('nav ul li a').forEach(anchor => {
         });
     });
 });
+
+document.querySelector('.hamburger-menu').addEventListener('click', function() {
+    document.querySelector('.mobile-menu').classList.toggle('visible');
+});
