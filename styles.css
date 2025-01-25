@@ -8,6 +8,12 @@ body {
 
 h1, h2 {
     font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.05em;
+}
+
+h2 {
+    font-size: 2rem;
 }
 
 nav ul {
@@ -39,8 +45,14 @@ nav ul li a {
     font-size: 16px;
 }
 
+.hero button:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
 .forum-preview {
     padding: 20px;
+    text-align: left;
 }
 
 @media (max-width: 600px) {
