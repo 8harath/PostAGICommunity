@@ -97,3 +97,26 @@ class Node {
         ellipse(this.x, this.y, this.size);
     }
 }
+
+// Dark/Light Mode Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme') || 'dark';
+
+if (currentTheme === 'light') {
+    document.body.classList.add('light-mode');
+}
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+    localStorage.setItem('theme', theme);
+});
+
+// Update tabindex attributes for keyboard navigation
+function updateTabindex() {
+    document.querySelectorAll('a, button').forEach(element => {
+        element.setAttribute('tabindex', '0');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', updateTabindex);
