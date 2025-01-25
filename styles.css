@@ -184,3 +184,24 @@ select#sort-threads {
 select#sort-threads:hover {
     border-color: #008F7A;
 }
+
+/* Add @keyframes fadeIn animation definition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Add hover effect for .thread-card to lift on hover */
+.thread-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+/* Add background color transition for buttons */
+button {
+    transition: background-color 0.3s ease;
+}
