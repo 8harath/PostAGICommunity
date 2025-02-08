@@ -7,27 +7,27 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js" defer></script>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#" id="home-link">Home</a></li>
-            <li><a href="#" id="forum-link">Forum</a></li>
-            <li><a href="#" id="library-link">Library</a></li>
-            <li><a href="#" id="events-link">Events</a></li>
+            <li><a href="#home" id="home-link">Home</a></li>
+            <li><a href="#forum" id="forum-link">Forum</a></li>
+            <li><a href="#library" id="library-link">Library</a></li>
+            <li><a href="#events" id="events-link">Events</a></li>
         </ul>
     </nav>
-    <section class="hero">
+    <section class="hero" id="home">
         <div id="node-network"></div>
         <h1 style="letter-spacing: 0.05em; font-size: 3rem;">Welcome to the Post-AGI Community</h1>
         <h2 style="letter-spacing: 0.05em; font-size: 2rem;">Explore societal, ethical, and technological dimensions of a post-AGI world</h2>
         <button>Join the Discussion</button>
     </section>
-    <section class="forum-preview">
+    <section class="forum-preview" id="forum">
         <h2 style="letter-spacing: 0.05em; font-size: 2rem;">Latest Discussions</h2>
         <div id="threads"></div>
     </section>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
