@@ -35,9 +35,12 @@ document.addEventListener('DOMContentLoaded', loadThreads);
 document.querySelectorAll('nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
@@ -47,7 +50,7 @@ function setup() {
     let canvas = createCanvas(windowWidth, windowHeight);
     canvas.parent('node-network');
     frameRate(30);
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
         nodes.push(new Node(random(width), random(height)));
     }
 }
@@ -77,17 +80,17 @@ class Node {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.size = random(5, 15);
+        this.size = random(5, 10);
         this.angle = random(TWO_PI);
     }
 
     update() {
         this.angle += 0.05;
-        this.size = 10 + sin(this.angle) * 5;
+        this.size = 7 + sin(this.angle) * 3;
         let d = dist(mouseX, mouseY, this.x, this.y);
         if (d < 100) {
-            this.x += random(-1, 1);
-            this.y += random(-1, 1);
+            this.x += random(-0.5, 0.5);
+            this.y += random(-0.5, 0.5);
         }
     }
 

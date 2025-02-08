@@ -84,10 +84,6 @@ nav ul li a {
 }
 
 /* Hover effects for buttons and thread cards */
-.hero button:hover {
-    background-color: #008F7A;
-}
-
 .thread-card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
